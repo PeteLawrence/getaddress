@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Project Test Suite" tests="4" assertions="15" failures="0" errors="1" time="0.653600">
-    <testsuite name="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddresClientTest.php" tests="4" assertions="15" failures="0" errors="1" time="0.653600">
-      <testcase name="testWithoutApikey" class="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddresClientTest.php" line="14" assertions="2" time="0.001530"/>
-      <testcase name="testLookupWithInvalidApikey" class="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddresClientTest.php" line="26" assertions="2" time="0.648577"/>
-      <testcase name="testParseResponse" class="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddresClientTest.php" line="33" assertions="11" time="0.003346"/>
-      <testcase name="testLookup" class="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddresClientTest.php" line="48" assertions="0" time="0.000147">
-        <error type="PHPUnit_Framework_Error_Notice">GetAddressClientTest::testLookup
-Undefined variable: client
-
-/Users/pete/workspace/getaddress/tests/GetAddresClientTest.php:58
-</error>
-        <system-out>string(4) "fooj"
-</system-out>
-      </testcase>
+  <testsuite name="Project Test Suite" tests="5" assertions="28" failures="0" errors="0" time="0.925338">
+    <testsuite name="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddressClientTest.php" tests="5" assertions="28" failures="0" errors="0" time="0.925338">
+      <testcase name="testWithoutApikey" class="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddressClientTest.php" line="14" assertions="2" time="0.002055"/>
+      <testcase name="testLookupWithInvalidApikey" class="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddressClientTest.php" line="26" assertions="2" time="0.203636"/>
+      <testcase name="testParseResponse" class="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddressClientTest.php" line="33" assertions="11" time="0.003447"/>
+      <testcase name="testLookup" class="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddressClientTest.php" line="48" assertions="11" time="0.310361"/>
+      <testcase name="testLookupWithHouseName" class="GetAddressClientTest" file="/Users/pete/workspace/getaddress/tests/GetAddressClientTest.php" line="67" assertions="2" time="0.405839"/>
     </testsuite>
   </testsuite>
 </testsuites>
