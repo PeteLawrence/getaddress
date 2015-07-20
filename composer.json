@@ -23,7 +23,7 @@
         "phpunit/phpunit-mock-objects": "2.0.*@dev",
         "sebastian/version": "1.0.*",
         "sebastian/environment": "1.0.*@dev",
-        "theseer/phpdox": "0.6.5",
+        "theseer/phpdox": "~0",
         "sebastian/phpcpd": "2.0.*",
         "phpmd/phpmd": "dev-master",
         "pdepend/pdepend": "2.0.*",
