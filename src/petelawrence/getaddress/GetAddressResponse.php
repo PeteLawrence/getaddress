@@ -2,7 +2,8 @@
 
 namespace petelawrence\getaddress;
 
-class GetAddressResponse {
+class GetAddressResponse
+{
 
 
     private $longitude;
@@ -46,5 +47,4 @@ class GetAddressResponse {
     {
         $this->addresses[] = $address;
     }
-
 }

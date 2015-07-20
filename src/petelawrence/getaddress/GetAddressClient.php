@@ -2,7 +2,8 @@
 
 namespace petelawrence\getaddress;
 
-class GetAddressClient {
+class GetAddressClient
+{
 
 
     private $apiKey;
@@ -78,5 +79,4 @@ class GetAddressClient {
 
         return $getAddressResponse;
     }
-
 }

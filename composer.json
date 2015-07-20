@@ -28,7 +28,7 @@
         "phpmd/phpmd": "dev-master",
         "pdepend/pdepend": "2.0.*",
         "phploc/phploc": "2.0.*@dev",
-        "instaclick/php-code-sniffer": "dev-patch-3"
+        "instaclick/php-code-sniffer": "~1"
     },
     "autoload": {
         "psr-4": {"": "src/"}
