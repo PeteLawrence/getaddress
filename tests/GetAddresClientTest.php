@@ -50,8 +50,8 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
         $apiKey = getenv('GETADDRESSKEY');
         if (!$apiKey) {
             $this->markTestIncomplete('No api key has been set, so unable to test against getaddress.io');
+            return;
         }
-
         $client = new \petelawrence\getaddress\GetAddressClient($apiKey);
 
         $result = $client->lookup('NR10 4JJ');

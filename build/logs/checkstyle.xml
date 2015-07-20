@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="@package_version@">
+ <file name="/Users/pete/workspace/getaddress/src/petelawrence/getaddress/Address.php">
+  <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="5" column="1" severity="error" message="Missing class doc comment" source="PEAR.Commenting.ClassComment.Missing"/>
+  <error line="5" column="15" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="8" column="13" severity="error" message="Private member variable &quot;addr1&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="9" column="13" severity="error" message="Private member variable &quot;addr2&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="10" column="13" severity="error" message="Private member variable &quot;addr3&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="11" column="13" severity="error" message="Private member variable &quot;addr4&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="12" column="13" severity="error" message="Private member variable &quot;town&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="13" column="13" severity="error" message="Private member variable &quot;postalTown&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="14" column="13" severity="error" message="Private member variable &quot;county&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="16" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="16" column="123" severity="warning" message="Line exceeds 85 characters; contains 122 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="28" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="34" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="39" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="45" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="51" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="57" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="63" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+ </file>
+ <file name="/Users/pete/workspace/getaddress/src/petelawrence/getaddress/GetAddressClient.php">
+  <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="5" column="1" severity="error" message="Missing class doc comment" source="PEAR.Commenting.ClassComment.Missing"/>
+  <error line="5" column="24" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="8" column="13" severity="error" message="Private member variable &quot;apiKey&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="10" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="24" column="1" severity="warning" message="Line exceeds 85 characters; contains 100 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="52" column="12" severity="error" message="You must use &quot;/**&quot; style comments for a function comment" source="PEAR.Commenting.FunctionComment.WrongStyle"/>
+ </file>
+ <file name="/Users/pete/workspace/getaddress/src/petelawrence/getaddress/GetAddressResponse.php">
+  <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="5" column="1" severity="error" message="Missing class doc comment" source="PEAR.Commenting.ClassComment.Missing"/>
+  <error line="5" column="26" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="8" column="13" severity="error" message="Private member variable &quot;longitude&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="10" column="13" severity="error" message="Private member variable &quot;latitude&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="12" column="13" severity="error" message="Private member variable &quot;addresses&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="15" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="21" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="27" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="33" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="39" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="45" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+ </file>
+</checkstyle>
