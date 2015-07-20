@@ -54,7 +54,7 @@ class GetAddressClient {
         //Convert the response from JSON into an object
         $responseObj = json_decode($response);
 
-        $getAddressResponse = new \petelawrence\getaddress\getAddressResponse();
+        $getAddressResponse = new \petelawrence\getaddress\GetAddressResponse();
 
         //Set the longitude and latitude fields
         $getAddressResponse->setLongitude($responseObj->Longitude);
