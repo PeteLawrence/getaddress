@@ -3,6 +3,7 @@ composer.lock
 vendor
 
 build/api
+build/coverage
 build/logs
 build/pdepend
 build/phpmd
