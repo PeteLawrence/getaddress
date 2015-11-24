@@ -4,7 +4,6 @@ require 'vendor/autoload.php';
 
 class GetAddressClientTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      * Tests that attempting to instantiate GetAddressClient with an empty apiKey throws an error
      *
@@ -21,7 +20,7 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
      * Tests the lookup function with an invalid apiKey
      *
      * @expectedException        \GuzzleHttp\Exception\ClientException
-     * @expectedExceptionMessage Client error: 401
+     * @expectedExceptionMessage 401 Unauthorized
      */
     public function testLookupWithInvalidApikey()
     {
@@ -107,5 +106,4 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Norwich', $address0->getPostalTown());
         $this->assertEquals('Norfolk', $address0->getCounty());
     }
-
 }
