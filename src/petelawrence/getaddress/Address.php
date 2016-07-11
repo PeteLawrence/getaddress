@@ -113,6 +113,21 @@ class Address
 
 
     /**
+     * Returns the most appropriate of the two town fields
+     *
+     * @return string [description]
+     */
+    public function getNormalisedTown()
+    {
+        if ($this->town != '') {
+            return $this->town;
+        }
+
+        return $this->postalTown;
+    }
+
+
+    /**
      * Returns county
      *
      * @return string
