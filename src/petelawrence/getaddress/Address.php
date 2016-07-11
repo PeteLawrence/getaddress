@@ -2,13 +2,11 @@
 
 namespace petelawrence\getaddress;
 
-
 /**
  * An individual address returned from the getaddress.io API
  */
 class Address
 {
-
     private $addr1;
     private $addr2;
     private $addr3;
@@ -122,5 +120,11 @@ class Address
     public function getCounty()
     {
         return $this->county;
+    }
+
+
+    public function toCsv()
+    {
+        return sprintf('%s,%s,%s,%s,%s,%s,%s', $this->getAddr1(), $this->getAddr2(), $this->getAddr3(), $this->getAddr4(), $this->getTown(), $this->getPostalTown(), $this->getCounty());
     }
 }
