@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<index xmlns="http://xml.phpdox.net/src" basedir="/Users/pete/workspace/getaddress/src">
-  <namespace name="petelawrence\getaddress">
-    <class name="Address" src="petelawrence/getaddress/Address.php" xml="classes/petelawrence_getaddress_Address.xml"/>
-    <class name="GetAddressClient" src="petelawrence/getaddress/GetAddressClient.php" xml="classes/petelawrence_getaddress_GetAddressClient.xml"/>
-    <class name="GetAddressResponse" src="petelawrence/getaddress/GetAddressResponse.php" xml="classes/petelawrence_getaddress_GetAddressResponse.xml"/>
-  </namespace>
-</index>
