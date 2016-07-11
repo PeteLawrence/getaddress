@@ -4,7 +4,6 @@ require 'vendor/autoload.php';
 
 class GetAddressClientTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      * Tests that attempting to instantiate GetAddressClient with an empty apiKey throws an error
      *
@@ -21,7 +20,7 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
      * Tests the lookup function with an invalid apiKey
      *
      * @expectedException        \GuzzleHttp\Exception\ClientException
-     * @expectedExceptionMessage Client error: 401
+     * @expectedExceptionMessage 401 Unauthorized
      */
     public function testLookupWithInvalidApikey()
     {
@@ -59,6 +58,28 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
         $this->checkResultObject($result);
     }
 
+    /**
+     * Tests the lookup function with a postcode and house name
+     *
+     * @depejnds testParseResponse
+     */
+    public function testLookupWithHouseName()
+    {
+        $apiKey = getenv('GETADDRESSKEY');
+        if (!$apiKey) {
+            $this->markTestIncomplete('No api key has been set, so unable to test against getaddress.io');
+            return;
+        }
+        $client = new \petelawrence\getaddress\GetAddressClient($apiKey);
+
+        $result = $client->lookup('NR10 4JJ', 'Bank');
+
+        $this->assertEquals(1, sizeof($result->getAddresses()));
+
+        //Check that the correct property was returned
+        $address0 = $result->getAddresses()[0];
+        $this->assertEquals('Bank House', $address0->getAddr1());
+    }
 
 
 
@@ -85,5 +106,4 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Norwich', $address0->getPostalTown());
         $this->assertEquals('Norfolk', $address0->getCounty());
     }
-
 }
