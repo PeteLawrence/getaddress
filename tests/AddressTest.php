@@ -17,21 +17,21 @@ class AddressTest extends PHPUnit_Framework_TestCase
     }
 
 
-    public function testGetNormalisedAddress1()
+    public function testGetNormalisedTown1()
     {
         $address = new \petelawrence\getaddress\Address('Addr1', 'Addr2', 'Addr3', 'Addr4', 'Town', 'Postal Town');
         $this->assertEquals('Town', $address->getNormalisedTown());
     }
 
 
-    public function testGetNormalisedAddress2()
+    public function testGetNormalisedTown2()
     {
         $address = new \petelawrence\getaddress\Address('Addr1', 'Addr2', 'Addr3', 'Addr4', 'Town');
         $this->assertEquals('Town', $address->getNormalisedTown());
     }
 
 
-    public function testGetNormalisedAddress3()
+    public function testGetNormalisedTown3()
     {
         $address = new \petelawrence\getaddress\Address('Addr1', 'Addr2', 'Addr3', 'Addr4', '', 'Postal Town');
         $this->assertEquals('Postal Town', $address->getNormalisedTown());
