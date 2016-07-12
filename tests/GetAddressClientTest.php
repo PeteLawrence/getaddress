@@ -65,7 +65,7 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
 
         //Check that the correct property was returned
         $address0 = $result->getAddresses()[0];
-        $this->assertEquals('Bank House', $address0->getAddr1());
+        $this->assertEquals('Bank House', $address0->getLine1());
     }
 
 
@@ -96,10 +96,10 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
 
         //Check that the address fields have been correctly set
         $address0 = $result->getAddresses()[0];
-        $this->assertEquals('7 Market Place', $address0->getAddr1());
-        $this->assertEquals('', $address0->getAddr2());
-        $this->assertEquals('', $address0->getAddr3());
-        $this->assertEquals('', $address0->getAddr4());
+        $this->assertEquals('7 Market Place', $address0->getLine1());
+        $this->assertEquals('', $address0->getLine2());
+        $this->assertEquals('', $address0->getLine3());
+        $this->assertEquals('', $address0->getLine4());
         $this->assertEquals('Reepham', $address0->getTown());
         $this->assertEquals('Norwich', $address0->getPostalTown());
         $this->assertEquals('Norfolk', $address0->getCounty());

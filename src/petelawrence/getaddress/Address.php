@@ -7,10 +7,10 @@ namespace petelawrence\getaddress;
  */
 class Address
 {
-    private $addr1;
-    private $addr2;
-    private $addr3;
-    private $addr4;
+    private $line1;
+    private $line2;
+    private $line3;
+    private $line4;
     private $town;
     private $postalTown;
     private $county;
@@ -19,27 +19,27 @@ class Address
     /**
      * Instantiates a new Address object
      *
-     * @param string $addr1      Address Line 1
-     * @param string $addr2      Address Line 2
-     * @param string $addr3      Address Line 3
-     * @param string $addr4      Address Line 4
+     * @param string $line1      Line 1
+     * @param string $line2      Line 2
+     * @param string $line3      Line 3
+     * @param string $line4      Line 4
      * @param string $town       Town
      * @param string $postalTown Postal Town
      * @param string $county     County
      */
     public function __construct(
-        $addr1,
-        $addr2 = '',
-        $addr3 = '',
-        $addr4 = '',
+        $line1,
+        $line2 = '',
+        $line3 = '',
+        $line4 = '',
         $town = '',
         $postalTown = '',
         $county = ''
     ) {
-        $this->addr1 = $addr1;
-        $this->addr2 = $addr2;
-        $this->addr3 = $addr3;
-        $this->addr4 = $addr4;
+        $this->line1 = $line1;
+        $this->line2 = $line2;
+        $this->line3 = $line3;
+        $this->line4 = $line4;
         $this->town = $town;
         $this->postalTown = $postalTown;
         $this->county = $county;
@@ -47,46 +47,46 @@ class Address
 
 
     /**
-     * Returns address line 1
+     * Returns line 1
      *
      * @return string
      */
-    public function getAddr1()
+    public function getLine1()
     {
-        return $this->addr1;
+        return $this->line1;
     }
 
 
     /**
-     * Returns address line 2
+     * Returns line 2
      *
      * @return string
      */
-    public function getAddr2()
+    public function getLine2()
     {
-        return $this->addr2;
+        return $this->line2;
     }
 
 
     /**
-     * Returns address line 3
+     * Returns line 3
      *
      * @return string
      */
-    public function getAddr3()
+    public function getLine3()
     {
-        return $this->addr3;
+        return $this->line3;
     }
 
 
     /**
-     * Returns address line 4
+     * Returns line 4
      *
      * @return string
      */
-    public function getAddr4()
+    public function getLine4()
     {
-        return $this->addr4;
+        return $this->line4;
     }
 
 
@@ -140,6 +140,6 @@ class Address
 
     public function toCsv()
     {
-        return sprintf('%s,%s,%s,%s,%s,%s,%s', $this->getAddr1(), $this->getAddr2(), $this->getAddr3(), $this->getAddr4(), $this->getTown(), $this->getPostalTown(), $this->getCounty());
+        return sprintf('%s,%s,%s,%s,%s,%s,%s', $this->getLine1(), $this->getLine2(), $this->getLine3(), $this->getLine4(), $this->getTown(), $this->getPostalTown(), $this->getCounty());
     }
 }
