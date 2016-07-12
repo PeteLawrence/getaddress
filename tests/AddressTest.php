@@ -7,10 +7,10 @@ class AddressTest extends PHPUnit_Framework_TestCase
     public function testCreateAddress()
     {
         $address = new \petelawrence\getaddress\Address('Addr1', 'Addr2', 'Addr3', 'Addr4', 'Town', 'Postal Town', 'County');
-        $this->assertEquals('Addr1', $address->getAddr1());
-        $this->assertEquals('Addr2', $address->getAddr2());
-        $this->assertEquals('Addr3', $address->getAddr3());
-        $this->assertEquals('Addr4', $address->getAddr4());
+        $this->assertEquals('Addr1', $address->getLine1());
+        $this->assertEquals('Addr2', $address->getLine2());
+        $this->assertEquals('Addr3', $address->getLine3());
+        $this->assertEquals('Addr4', $address->getLine4());
         $this->assertEquals('Town', $address->getTown());
         $this->assertEquals('Postal Town', $address->getPostalTown());
         $this->assertEquals('County', $address->getCounty());

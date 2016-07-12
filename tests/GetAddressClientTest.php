@@ -19,8 +19,7 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
     /**
      * Tests the lookup function with an invalid apiKey
      *
-     * @expectedException        \GuzzleHttp\Exception\ClientException
-     * @expectedExceptionMessage 401 Unauthorized
+     * @expectedException        \petelawrence\getaddress\GetAddressAuthenticationException
      */
     public function testLookupWithInvalidApikey()
     {
@@ -39,46 +38,45 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
         $this->checkResultObject($result);
     }
 
+
     /**
      * Tests the lookup function with just a postcode
      *
-     * @depejnds testParseResponse
+     * @depends testParseResponse
      */
     public function testLookup()
     {
-        $apiKey = getenv('GETADDRESSKEY');
-        if (!$apiKey) {
-            $this->markTestIncomplete('No api key has been set, so unable to test against getaddress.io');
-            return;
-        }
-        $client = new \petelawrence\getaddress\GetAddressClient($apiKey);
-
-        $result = $client->lookup('NR10 4JJ');
+        $result = $this->getAuthenicatedClient()->lookup('NR10 4JJ');
 
         $this->checkResultObject($result);
     }
 
+
     /**
      * Tests the lookup function with a postcode and house name
      *
-     * @depejnds testParseResponse
+     * @depends testParseResponse
      */
     public function testLookupWithHouseName()
     {
-        $apiKey = getenv('GETADDRESSKEY');
-        if (!$apiKey) {
-            $this->markTestIncomplete('No api key has been set, so unable to test against getaddress.io');
-            return;
-        }
-        $client = new \petelawrence\getaddress\GetAddressClient($apiKey);
-
-        $result = $client->lookup('NR10 4JJ', 'Bank');
+        $result = $this->getAuthenicatedClient()->lookup('NR10 4JJ', 'Bank');
 
         $this->assertEquals(1, sizeof($result->getAddresses()));
 
         //Check that the correct property was returned
         $address0 = $result->getAddresses()[0];
-        $this->assertEquals('Bank House', $address0->getAddr1());
+        $this->assertEquals('Bank House', $address0->getLine1());
+    }
+
+
+    /**
+     * Tests the lookup function with an invalid postcode
+     *
+     * @expectedException \petelawrence\getaddress\GetAddressLookupException
+     */
+    public function testInvalidLookup()
+    {
+        $this->getAuthenicatedClient()->lookup('XX10 4JJ');
     }
 
 
@@ -98,12 +96,29 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
 
         //Check that the address fields have been correctly set
         $address0 = $result->getAddresses()[0];
-        $this->assertEquals('7 Market Place', $address0->getAddr1());
-        $this->assertEquals('', $address0->getAddr2());
-        $this->assertEquals('', $address0->getAddr3());
-        $this->assertEquals('', $address0->getAddr4());
+        $this->assertEquals('7 Market Place', $address0->getLine1());
+        $this->assertEquals('', $address0->getLine2());
+        $this->assertEquals('', $address0->getLine3());
+        $this->assertEquals('', $address0->getLine4());
         $this->assertEquals('Reepham', $address0->getTown());
         $this->assertEquals('Norwich', $address0->getPostalTown());
         $this->assertEquals('Norfolk', $address0->getCounty());
+    }
+
+
+    /**
+     * Returns a GetAddressClient with a valid key (assuming a valid one has been supplied)
+     *
+     * @return [type] [description]
+     */
+    private function getAuthenicatedClient()
+    {
+        $apiKey = getenv('GETADDRESSKEY');
+        if (!$apiKey) {
+            $this->markTestIncomplete('No api key has been set, so unable to test against getaddress.io');
+            return;
+        }
+
+        return new \petelawrence\getaddress\GetAddressClient($apiKey);
     }
 }
