@@ -4,8 +4,6 @@ namespace petelawrence\getaddress;
 
 class GetAddressClient
 {
-
-
     private $apiKey;
 
     public function __construct($apiKey)
@@ -36,17 +34,25 @@ class GetAddressClient
         );
 
         //Perform the query
-        $response = $guzzleClient->get(
-            sprintf('%s/%s', $postcode, $houseNumOrName),
-            [
-                'auth'=> ['api-key', $this->apiKey]
-            ]
-        );
+        try {
+            $response = $guzzleClient->get(
+                sprintf('%s/%s', $postcode, $houseNumOrName),
+                [
+                    'auth'=> ['api-key', $this->apiKey]
+                ]
+            );
+        } catch (\Exception $e) {
+            if ($e->getResponse()->getStatusCode() == 401) {
+                throw new GetAddressAuthenticationException('getaddress.io authentication failed');
+            }
+
+            //Default exception
+            throw new GetAddressLookupException('An error occurred performing the lookup');
+        }
 
         $result = $this->parseResponse($response->getBody()->getContents());
 
         return $result;
-
     }
 
 

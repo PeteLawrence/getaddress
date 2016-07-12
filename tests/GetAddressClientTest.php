@@ -19,8 +19,7 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
     /**
      * Tests the lookup function with an invalid apiKey
      *
-     * @expectedException        \GuzzleHttp\Exception\ClientException
-     * @expectedExceptionMessage 401 Unauthorized
+     * @expectedException        \petelawrence\getaddress\GetAddressAuthenticationException
      */
     public function testLookupWithInvalidApikey()
     {
@@ -61,7 +60,7 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
     /**
      * Tests the lookup function with a postcode and house name
      *
-     * @depejnds testParseResponse
+     * @depends testParseResponse
      */
     public function testLookupWithHouseName()
     {
@@ -79,6 +78,26 @@ class GetAddressClientTest extends PHPUnit_Framework_TestCase
         //Check that the correct property was returned
         $address0 = $result->getAddresses()[0];
         $this->assertEquals('Bank House', $address0->getAddr1());
+    }
+
+
+    /**
+     * Tests the lookup function with an invalid postcode
+     *
+     * @depends testParseResponse
+     *
+     * @expectedException \petelawrence\getaddress\GetAddressLookupException
+     */
+    public function testInvalidLookup()
+    {
+        $apiKey = getenv('GETADDRESSKEY');
+        if (!$apiKey) {
+            $this->markTestIncomplete('No api key has been set, so unable to test against getaddress.io');
+            return;
+        }
+        $client = new \petelawrence\getaddress\GetAddressClient($apiKey);
+
+        $client->lookup('XX10 4JJ');
     }
 
 
