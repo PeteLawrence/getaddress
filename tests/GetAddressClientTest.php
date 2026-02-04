@@ -101,7 +101,7 @@ class GetAddressClientTest extends TestCase
         $apiKey = getenv('GETADDRESSKEY');
 
         if (!$apiKey) {
-            $this->markTestIncomplete('No api key has been set, so unable to test against getaddress.io');
+            $this->markTestIncomplete('No api key has been set, so unable to test against Ideal Postcodes');
             return;
         }
 

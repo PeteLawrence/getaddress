@@ -1,6 +1,6 @@
 {
     "name": "petelawrence/getaddress",
-    "description": "A PHP library for the getaddress.io postcode lookup service",
+    "description": "A PHP library for the Ideal Postcodes postcode lookup service",
     "keywords": ["getaddress.io", "postcode"],
     "homepage": "https://github.com/PeteLawrence/getaddress",
     "authors": [

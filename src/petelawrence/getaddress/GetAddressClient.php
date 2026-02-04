@@ -17,7 +17,7 @@ class GetAddressClient
 
 
     /**
-     * Queries getaddress.io for houses with the given postcode
+     * Queries Ideal Postcodes for houses with the given postcode
      *
      * @param string $postcode       The postcode to return houses for
      * @param string $houseNumOrName Used to filter results, but not supported by Ideal Postcodes
@@ -40,7 +40,7 @@ class GetAddressClient
             );
         } catch (\Exception $e) {
             if ($e->getResponse()->getStatusCode() == 401) {
-                throw new GetAddressAuthenticationException('getaddress.io authentication failed');
+                throw new GetAddressAuthenticationException('Ideal Postcodes authentication failed');
             }
 
             //Default exception
