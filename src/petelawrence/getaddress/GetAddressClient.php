@@ -17,10 +17,10 @@ class GetAddressClient
 
 
     /**
-     * Queries getaddress.io for houses with the given postcode
+     * Queries Ideal Postcodes for houses with the given postcode
      *
      * @param string $postcode       The postcode to return houses for
-     * @param string $houseNumOrName If supplied will limit results to those that contain this value
+     * @param string $houseNumOrName Used to filter results, but not supported by Ideal Postcodes
      *
      * @return petelawrence\getaddress\Address[]
      */
@@ -29,21 +29,18 @@ class GetAddressClient
         //Create a new Guzzle client
         $guzzleClient = new \GuzzleHttp\Client(
             [
-                'base_uri' => 'https://api.getAddress.io/v2/uk/'
+                'base_uri' => 'https://api.ideal-postcodes.co.uk/v1/postcodes/'
             ]
         );
 
         //Perform the query
         try {
             $response = $guzzleClient->get(
-                sprintf('%s/%s', $postcode, $houseNumOrName),
-                [
-                    'auth'=> ['api-key', $this->apiKey]
-                ]
+                sprintf('%s?api_key=%s', $postcode, $this->apiKey),
             );
         } catch (\Exception $e) {
             if ($e->getResponse()->getStatusCode() == 401) {
-                throw new GetAddressAuthenticationException('getaddress.io authentication failed');
+                throw new GetAddressAuthenticationException('Ideal Postcodes authentication failed');
             }
 
             //Default exception
@@ -63,22 +60,30 @@ class GetAddressClient
 
         $getAddressResponse = new \petelawrence\getaddress\GetAddressResponse();
 
-        //Set the longitude and latitude fields
-        $getAddressResponse->setLongitude($responseObj->Longitude);
-        $getAddressResponse->setLatitude($responseObj->Latitude);
+        //Set the longitude and latitude fields (for Ideal Postcodes get from the first address)
+        $getAddressResponse->setLongitude($responseObj->result[0]->longitude);
+        $getAddressResponse->setLatitude($responseObj->result[0]->latitude);
 
         //Set the address fields
-        foreach ($responseObj->Addresses as $addressLine) {
-            $addressParts = explode(',', $addressLine);
+        foreach ($responseObj->result as $address) {
+            // NR10 4JJ postcodes via Ideal Postcodes have 'Reepham' in line 3 as well as dependant_locality..
+            $line2 = $address->line_2 !== $address->dependant_locality
+                ? $address->line_2
+                : '';
+
+            $line3 = $address->line_3 !== $address->dependant_locality
+                ? $address->line_3
+                : '';
+
             $getAddressResponse->addAddress(
                 new Address(
-                    trim($addressParts[0]), //addr1
-                    trim($addressParts[1]), //addr2
-                    trim($addressParts[2]), //addr3
-                    trim($addressParts[3]), //addr4
-                    trim($addressParts[4]), //town
-                    trim($addressParts[5]), //postal town
-                    trim($addressParts[6]) //county
+                    trim($address->line_1), // addr1
+                    trim($line2), // addr2
+                    trim($line3), // addr3
+                    '', // addr4 - not supplied by Ideal Postcodes
+                    trim($address->dependant_locality), // town/locality
+                    trim($address->post_town), // postal town
+                    trim($address->county) // county
                 )
             );
         }
